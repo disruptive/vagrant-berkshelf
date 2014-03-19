@@ -31,6 +31,7 @@ module Berkshelf
 
           def upload(env)
             provisioners(:chef_client, env).each do |provisioner|
+              env[:berkshelf].ui.info "provisioner (#{provisioner.class.to_s} as yaml) => #{provisioner.to_yaml}"
               env[:berkshelf].ui.info "Uploading cookbooks to '#{provisioner.config.chef_server_url}'"
               env[:berkshelf].berksfile.upload(
                 server_url: provisioner.config.chef_server_url,

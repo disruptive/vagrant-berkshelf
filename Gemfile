@@ -36,3 +36,7 @@ group :guard do
     gem 'win32console', require: false
   end
 end
+
+group :plugins do
+  gem "vagrant-berkshelf", path: "."
+end
